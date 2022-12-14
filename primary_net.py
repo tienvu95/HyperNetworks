@@ -41,6 +41,8 @@ class PrimaryNetwork(nn.Module):
         self.bn1 = nn.BatchNorm2d(16)
 
         self.z_dim = z_dim
+
+        #input to hypernet = z_dim, size of hidden layer
         self.hope = HyperNetwork(z_dim=self.z_dim)
 
         self.zs_size = [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1],
@@ -72,6 +74,7 @@ class PrimaryNetwork(nn.Module):
 
         for i in range(18):
             # if i != 15 and i != 17:
+            #weight detemined by hypernet
             w1 = self.zs[2*i](self.hope)
             w2 = self.zs[2*i+1](self.hope)
             x = self.res_net[i](x, w1, w2)
