@@ -63,6 +63,7 @@ weight_decay = 0.0005
 milestones = [168000, 336000, 400000, 450000, 550000, 600000]
 max_iter = 1000000
 
+## based on cross entropy loss
 optimizer = optim.Adam(net.parameters(), lr=learning_rate, weight_decay=weight_decay)
 lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer=optimizer, milestones=milestones, gamma=0.5)
 criterion = nn.CrossEntropyLoss()

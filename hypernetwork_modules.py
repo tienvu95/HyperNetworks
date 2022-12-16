@@ -34,7 +34,7 @@ class HyperNetwork(nn.Module):
         h_in = h_in.view(self.in_size, self.z_dim)
 
 
-        #h_final take the input of h_in and weight and bias finale generated above
+        #h_final take the input of h_in and weight and bias generated above
         h_final = torch.matmul(h_in, self.w1) + self.b1
 
         #kernal is a reshaped version of h_final computed above (baiscally it's a filter or feature detector)
